@@ -13,20 +13,20 @@ public class PlayerTest {
     @Before
     public void before(){
         item = new Item("Coin");
-        player = new Player(100);
-        player2 = new Player(100);
+        player = new Player(CharacterType.MELEE);
+        player2 = new Player(CharacterType.MELEE);
         axe = new Weapon(WeaponType.AXE.stringify(), WeaponType.AXE);
         sword = new Weapon(WeaponType.SWORD.stringify(), WeaponType.SWORD);
     }
     @Test
     public void canAddItemToInventory(){
         player.addToInventory(item);
-        assertEquals(1,player.getInventory().size());
+        assertEquals(2,player.getInventory().size());
     }
     @Test
     public void canCollect(){
         player.collect(item);
-        assertEquals(1, player.getInventory().size());
+        assertEquals(2, player.getInventory().size());
     }
 //    @Test
 //    public void canDecreaseHealth(){
@@ -35,19 +35,32 @@ public class PlayerTest {
 //    }
     @Test
     public void canAttack(){
+        player.collect(sword);
         player.equipWeapon(sword);
         player.attack(player2);
         assertEquals(90, player2.getHealth());
     }
     @Test
     public void canEquipWeapon(){
+        player.collect(axe);
         player.equipWeapon(axe);
         assertEquals(WeaponType.AXE,player.getWeaponType());
     }
     @Test
     public void canAttackWithWeapon() {
+        player.collect(axe);
         player.equipWeapon(axe);
         player.attack(player2);
         assertEquals(80, player2.getHealth());
+    }
+    @Test
+    public void willOnlyEquipWeaponsInInventory() {
+        player.equipWeapon(axe);
+        assertEquals(WeaponType.SWORD, player.getWeapon().getWeaponType());
+    }
+
+    @Test
+    public void startsWithWeapon() {
+        assertEquals(WeaponType.SWORD, player.getWeaponType());
     }
 }

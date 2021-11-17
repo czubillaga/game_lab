@@ -1,7 +1,14 @@
 public class Player extends Character{
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     private Weapon weapon;
-    public Player(int health) {
-        super(health);
+    public Player(CharacterType characterType) {
+        super(characterType);
+        WeaponType startingWeaponType = characterType.getStartingWeaponType();
+        weapon = new Weapon(startingWeaponType.stringify(), startingWeaponType);
+        this.addToInventory(weapon);
     }
     public void attack(Character opponent) {
         opponent.decreaseHealth(this.getWeaponType().getAttackValue());
@@ -16,10 +23,13 @@ public class Player extends Character{
     }
 
     public void equipWeapon(Weapon weapon){
-        this.setWeapon(weapon);
+        if(this.inventoryContains(weapon)) {
+            this.setWeapon(weapon);
+        }
     }
 
     public WeaponType getWeaponType() {
         return this.weapon.getWeaponType();
     }
+
 }

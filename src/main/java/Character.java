@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 
 public abstract class Character implements IAttack, ICollect{
-    private int health;
+    private CharacterType characterType;
     private ArrayList<Item> inventory;
+    private int health;
 
-    public Character(int health) {
-        this.health = health;
+    public Character(CharacterType characterType) {
+        this.characterType = characterType;
         this.inventory = new ArrayList<>();
+        this.health = this.characterType.getHealth();
     }
     public int getHealth() {
-        return health;
+        return this.health;
     }
     public ArrayList<Item> getInventory() {
         return inventory;
@@ -20,5 +22,9 @@ public abstract class Character implements IAttack, ICollect{
 
     public void decreaseHealth(int i){
         this.health -= i;
+    }
+
+    public boolean inventoryContains(Item item) {
+        return this.inventory.contains(item);
     }
 }

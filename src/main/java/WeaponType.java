@@ -1,7 +1,10 @@
 public enum WeaponType {
     SWORD(10),
     AXE(20),
-    SPEAR(20);
+    SPEAR(20),
+    FIREBALL(20),
+    LIGHTNINGSTRIKE(30),
+    HEAL(-10);
 
   private final int attackValue;
 
