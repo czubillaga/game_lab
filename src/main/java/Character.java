@@ -21,6 +21,9 @@ public abstract class Character implements IAttack, ICollect{
     }
 
     public void decreaseHealth(int i){
+        if(this.characterType == CharacterType.MAGE) {
+            i -= this.characterType.getStartingCreatureType().getProtection();
+        }
         this.health -= i;
     }
 

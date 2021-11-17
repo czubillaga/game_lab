@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class PlayerTest {
     Player player;
     Player player2;
+    Player mage;
     Item item;
     Weapon axe;
     Weapon sword;
@@ -17,6 +18,7 @@ public class PlayerTest {
         player2 = new Player(CharacterType.MELEE);
         axe = new Weapon(WeaponType.AXE.stringify(), WeaponType.AXE);
         sword = new Weapon(WeaponType.SWORD.stringify(), WeaponType.SWORD);
+        mage = new Player(CharacterType.MAGE);
     }
     @Test
     public void canAddItemToInventory(){
@@ -62,5 +64,11 @@ public class PlayerTest {
     @Test
     public void startsWithWeapon() {
         assertEquals(WeaponType.SWORD, player.getWeaponType());
+    }
+
+    @Test
+    public void willBeProtectedIfMage() {
+        player.attack(mage);
+        assertEquals(75, mage.getHealth());
     }
 }
