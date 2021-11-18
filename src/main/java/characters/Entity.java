@@ -28,13 +28,14 @@ public abstract class Entity implements IAttack, ICollect {
     }
 
     public void decreaseHealth(int i){
-        if(this.characterType == CharacterType.MAGE) {
-            i -= this.characterType.getStartingCreatureType().getProtection();
-        }
         this.health -= i;
     }
 
     public boolean inventoryContains(Item item) {
         return this.inventory.contains(item);
+    }
+
+    public void setHealth(int newHealth) {
+        this.health = newHealth;
     }
 }

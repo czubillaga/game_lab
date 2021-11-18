@@ -1,4 +1,5 @@
 import characters.Player;
+import characters.mage.Wizard;
 import items.Item;
 import items.Weapon;
 import org.junit.Before;
@@ -11,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class PlayerTest {
     Player player;
     Player player2;
-    Player mage;
+    Wizard mage;
     Item item;
     Weapon axe;
     Weapon sword;
@@ -23,7 +24,7 @@ public class PlayerTest {
         player2 = new Player(CharacterType.MELEE);
         axe = new Weapon(WeaponType.AXE.stringify(), WeaponType.AXE);
         sword = new Weapon(WeaponType.SWORD.stringify(), WeaponType.SWORD);
-        mage = new Player(CharacterType.MAGE);
+        mage = new Wizard();
     }
     @Test
     public void canAddItemToInventory(){
