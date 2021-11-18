@@ -1,11 +1,18 @@
+package characters;
+
+import behaviors.IAttack;
+import behaviors.ICollect;
+import items.Item;
+import types.CharacterType;
+
 import java.util.ArrayList;
 
-public abstract class Character implements IAttack, ICollect{
+public abstract class Entity implements IAttack, ICollect {
     private CharacterType characterType;
     private ArrayList<Item> inventory;
     private int health;
 
-    public Character(CharacterType characterType) {
+    public Entity(CharacterType characterType) {
         this.characterType = characterType;
         this.inventory = new ArrayList<>();
         this.health = this.characterType.getHealth();

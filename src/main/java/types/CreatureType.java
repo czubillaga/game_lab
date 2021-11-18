@@ -1,3 +1,5 @@
+package types;
+
 public enum CreatureType {
     DRAGON(20),
     OGRE(10),

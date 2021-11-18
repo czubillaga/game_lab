@@ -1,3 +1,7 @@
+package items;
+
+import types.WeaponType;
+
 public class Weapon extends Item{
     private WeaponType weaponType;
 

@@ -1,3 +1,5 @@
+package types;
+
 public enum CharacterType {
     MELEE(100, WeaponType.SWORD, null),
     MAGE(80, WeaponType.FIREBALL, CreatureType.GOBLIN),

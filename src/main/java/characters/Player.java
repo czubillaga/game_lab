@@ -1,4 +1,11 @@
-public class Player extends Character{
+package characters;
+
+import items.Item;
+import items.Weapon;
+import types.CharacterType;
+import types.WeaponType;
+
+public class Player extends Entity{
     public Weapon getWeapon() {
         return weapon;
     }
@@ -10,7 +17,7 @@ public class Player extends Character{
         weapon = new Weapon(startingWeaponType.stringify(), startingWeaponType);
         this.addToInventory(weapon);
     }
-    public void attack(Character opponent) {
+    public void attack(Entity opponent) {
         opponent.decreaseHealth(this.getWeaponType().getAttackValue());
     }
 

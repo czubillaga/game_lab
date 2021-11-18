@@ -1,3 +1,5 @@
+package types;
+
 public enum WeaponType {
     SWORD(10),
     AXE(20),

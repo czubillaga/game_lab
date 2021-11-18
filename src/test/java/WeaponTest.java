@@ -1,5 +1,7 @@
+import items.Weapon;
 import org.junit.Before;
 import org.junit.Test;
+import types.WeaponType;
 
 import static org.junit.Assert.assertEquals;
 
