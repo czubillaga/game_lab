@@ -1,6 +1,8 @@
 package items;
 
-public class Item {
+import behaviors.IContent;
+
+public class Item implements IContent {
     private String name;
 
     public Item(String name) {
